@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script>
+    import "/turbo-router.js";
+  </script>
+</head>
+<body>
+  <header class="bg-primary text-white py-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Our Company</h1>
+      <ul class="flex space-x-4">
+        <li><a href="/" class="hover:underline">Home</a></li>
+        <li><a href="/services" class="hover:underline">Services</a></li>
+        <li><a href="/about" class="hover:underline">About</a></li>
+        <li><a href="/contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container mx-auto py-8">
+    <slot />
+  </main>
+  <footer class="bg-primary text-white py-4 text-center">
+    <p>&copy; 2024 Our Company. All rights reserved.</p>
+  </footer>
+</body>
+</html>
